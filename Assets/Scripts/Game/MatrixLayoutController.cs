@@ -9,8 +9,10 @@ using DragDirection = Enums.DragDirection;
 
 public class MatrixLayoutController : MonoBehaviour {
     [SerializeField] private RectTransform _playableArea;
+
     [SerializeField] private GameObject _columnPrefab;
     [SerializeField] private GameObject _elementPrefab;
+
     [SerializeField] private ElementMatrix _elementMatrix;
 
     private int _existingElementsCount;
@@ -37,7 +39,7 @@ public class MatrixLayoutController : MonoBehaviour {
 
         if (_elementMatrix.TryDetectMatch(out allDetectedElements)) {
             _isChecking = true;
-            StartCoroutine(HideAndMoveDetectedElements(allDetectedElements, () => { _isChecking = false; }));
+            StartCoroutine(hideAndMoveDetectedElements(allDetectedElements, () => { _isChecking = false; }));
         }
     }
 
@@ -66,15 +68,15 @@ public class MatrixLayoutController : MonoBehaviour {
         }
 
         if (nextElement != null) {
-            StartCoroutine(DoElementsPositionSwitch(draggedElement, nextElement,
+            StartCoroutine(doElementsPositionSwitch(draggedElement, nextElement,
                 () => {
                     List<Element> allDetectedElements;
                     if (_elementMatrix.TryDetectMatch(out allDetectedElements)) {
-                        StartCoroutine(HideAndMoveDetectedElements(allDetectedElements,
+                        StartCoroutine(hideAndMoveDetectedElements(allDetectedElements,
                             () => { _isChecking = false; }));
                     }
                     else {
-                        StartCoroutine(DoElementsPositionSwitch(draggedElement, nextElement,
+                        StartCoroutine(doElementsPositionSwitch(draggedElement, nextElement,
                             () => { _isChecking = false; }));
                     }
                 }));
@@ -95,25 +97,6 @@ public class MatrixLayoutController : MonoBehaviour {
         to.ElementImage = fromTmpImage;
     }
 
-    private IEnumerator HideAndMoveDetectedElements(List<Element> allDetectedElements, Action handler) {
-        foreach (Element element in allDetectedElements) {
-            HideAndMoveElement(element);
-        }
-
-        yield return new WaitUntil(() => allDetectedElements.All(x => !x.IsHidding));
-
-        _elementMatrix.ReorderColumnElements();
-
-        if (_elementMatrix.TryDetectMatch(out allDetectedElements)) {
-            yield return StartCoroutine(HideAndMoveDetectedElements(allDetectedElements, handler));
-        }
-        else {
-            if (handler != null) {
-                handler();
-            }
-        }
-    }
-
     private void HideAndMoveElement(Element element) {
         element.IsHidding = true;
         Vector2 startSizeDelta = element.ElementRectTransform.sizeDelta;
@@ -130,7 +113,7 @@ public class MatrixLayoutController : MonoBehaviour {
         });
     }
 
-    private IEnumerator DoElementsPositionSwitch(Element from, Element to, Action handler) {
+    private IEnumerator doElementsPositionSwitch(Element from, Element to, Action handler) {
         Transform fromTransform = from.ElementImageTransform;
         Transform toTransform = to.ElementImageTransform;
         Transform fromTmpParent = fromTransform.parent;
@@ -194,6 +177,25 @@ public class MatrixLayoutController : MonoBehaviour {
 
             while (_elementMatrix.ColumnsCount != Config.ColumnCount) {
                 _elementMatrix.RemoveLastColumn();
+            }
+        }
+    }
+
+    private IEnumerator hideAndMoveDetectedElements(List<Element> allDetectedElements, Action handler) {
+        foreach (Element element in allDetectedElements) {
+            HideAndMoveElement(element);
+        }
+
+        yield return new WaitUntil(() => allDetectedElements.All(x => !x.IsHidding));
+
+        _elementMatrix.ReorderColumnElements();
+
+        if (_elementMatrix.TryDetectMatch(out allDetectedElements)) {
+            yield return StartCoroutine(hideAndMoveDetectedElements(allDetectedElements, handler));
+        }
+        else {
+            if (handler != null) {
+                handler();
             }
         }
     }

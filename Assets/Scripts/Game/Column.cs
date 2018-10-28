@@ -8,18 +8,17 @@ public class Column : MonoBehaviour {
     private RectTransform _columnTransform;
 
     private int _existingElementsCount;
-
     private int _columnIndex;
 
     public Element this[int index] {
         get { return _elements.Find(x => x.ElementCoords.Y == index); }
     }
 
-    public float ElementWidth {
+    private float ElementWidth {
         get { return _columnTransform.sizeDelta.x; }
     }
 
-    public float ElementHeight {
+    private float ElementHeight {
         get { return _columnTransform.sizeDelta.y / (2 * Config.RawCount); }
     }
 
@@ -34,19 +33,19 @@ public class Column : MonoBehaviour {
         GenerateElements(elementPrefab);
     }
 
-    public void SetSizes(Vector2 size) {
-        _columnTransform.sizeDelta = size;
-    }
-
-    public void SetParent(Transform parentToSet) {
-        _columnTransform.SetParent(parentToSet, false);
-    }
-
     public void OrderElements() {
         for (int i = 0; i < _elements.Count; i++) {
             _elements[i].ElementCoords = new Coord2D(_elements[i].ElementCoords.X,
                 _elements.Count - _elements[i].ElementRectTransform.GetSiblingIndex() - 1);
         }
+    }
+
+    private void SetSizes(Vector2 size) {
+        _columnTransform.sizeDelta = size;
+    }
+
+    private void SetParent(Transform parentToSet) {
+        _columnTransform.SetParent(parentToSet, false);
     }
 
     private void GenerateElements(GameObject elementPrefab) {

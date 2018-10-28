@@ -17,7 +17,6 @@ public class GameUtils {
             draggedDir = dragVector.y > 0 ? DragDirection.Up : DragDirection.Down;
         }
 
-
         return draggedDir;
     }
 }

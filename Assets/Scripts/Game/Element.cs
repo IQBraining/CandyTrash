@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Element : MonoBehaviour, IEquatable<Element>, IEndDragHandler, IDragHandler {
     [SerializeField] private Image _elementImage;
+
     private RectTransform _elementRectTransform;
 
     private Coord2D _elementCoords;
@@ -52,21 +50,7 @@ public class Element : MonoBehaviour, IEquatable<Element>, IEndDragHandler, IDra
         UniqueSprite uniqueSprite =
             GameUIController.Instance.ElementSprites.GetSpriteByIndex(Random.Range(0, spriteCount));
         _elementImage.sprite = uniqueSprite.Sprite;
-        _id = uniqueSprite.Id;
-    }
-
-    private void SetSizes(Vector2 size) {
-        _elementRectTransform.sizeDelta = size;
-        _elementImage.rectTransform.sizeDelta = Vector2.one * size.y;
-    }
-
-    private void SetParent(Transform parentToSet) {
-        _elementRectTransform.SetParent(parentToSet, false);
-    }
-
-
-    private void Awake() {
-        _elementRectTransform = GetComponent<RectTransform>();
+        _id = uniqueSprite.ID;
     }
 
     public bool Equals(Element other) {
@@ -82,5 +66,24 @@ public class Element : MonoBehaviour, IEquatable<Element>, IEndDragHandler, IDra
     }
 
     public void OnDrag(PointerEventData eventData) {
+    }
+
+    private void SetSizes(Vector2 size) {
+        _elementRectTransform.sizeDelta = size;
+
+        if (size.y >= size.x) {
+            _elementImage.rectTransform.sizeDelta = Vector2.one * size.x;
+        }
+        else {
+            _elementImage.rectTransform.sizeDelta = Vector2.one * size.y;
+        }
+    }
+
+    private void SetParent(Transform parentToSet) {
+        _elementRectTransform.SetParent(parentToSet, false);
+    }
+
+    private void Awake() {
+        _elementRectTransform = GetComponent<RectTransform>();
     }
 }

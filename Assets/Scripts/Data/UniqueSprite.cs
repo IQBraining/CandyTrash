@@ -11,7 +11,7 @@ public class UniqueSprite {
         get { return _sprite; }
     }
 
-    public string Id {
+    public string ID {
         get { return _id; }
     }
 }

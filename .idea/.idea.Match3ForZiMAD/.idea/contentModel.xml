@@ -53,7 +53,6 @@
             <e p="Config.cs" t="Include" />
           </e>
           <e p="Controllers" t="Include">
-            <e p="GameSceneController.cs" t="Include" />
             <e p="GameUIController.cs" t="Include" />
             <e p="GameViewController.cs" t="Include" />
             <e p="LoadingSceneController.cs" t="Include" />
