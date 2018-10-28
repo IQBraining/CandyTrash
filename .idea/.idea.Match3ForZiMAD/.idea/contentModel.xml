@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\MyFILES\MyProjects\Match3ForZiMAD" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="codeandweb.com" t="Include">
+          <e p="Editor" t="Include">
+            <e p="SettingsTexturePackerImporter.txt" t="Include" />
+          </e>
+          <e p="readme.txt" t="Include" />
+        </e>
+        <e p="Demigiant" t="Include">
+          <e p="DemiLib" t="Include">
+            <e p="Core" t="Include">
+              <e p="DemiLib.xml" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="DemiEditor.xml" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="DOTweenPro" t="Include">
+            <e p="DOTweenAnimation.cs" t="Include" />
+            <e p="DOTweenProShortcuts.cs" t="Include" />
+            <e p="DOTweenTextMeshPro.cs" t="Include" />
+            <e p="DOTweenTk2d.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="DOTweenAnimationInspector.cs" t="Include" />
+              <e p="DOTweenPreviewManager.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="readme_DOTweenPro.txt" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Abstract" t="Include">
+            <e p="BaseView.cs" t="Include" />
+          </e>
+          <e p="Config" t="Include">
+            <e p="Config.cs" t="Include" />
+          </e>
+          <e p="Controllers" t="Include">
+            <e p="GameSceneController.cs" t="Include" />
+            <e p="GameUIController.cs" t="Include" />
+            <e p="GameViewController.cs" t="Include" />
+            <e p="LoadingSceneController.cs" t="Include" />
+          </e>
+          <e p="Data" t="Include">
+            <e p="AnimationInfo.cs" t="Include" />
+            <e p="Coord2D.cs" t="Include" />
+            <e p="ElementMatrix.cs" t="Include" />
+            <e p="Enums.cs" t="Include" />
+            <e p="SpriteCollection.cs" t="Include" />
+            <e p="UniqueSprite.cs" t="Include" />
+          </e>
+          <e p="Game" t="Include">
+            <e p="Column.cs" t="Include" />
+            <e p="Element.cs" t="Include" />
+            <e p="MatrixLayoutController.cs" t="Include" />
+          </e>
+          <e p="Generic" t="Include">
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="IBaseView.cs" t="Include" />
+          </e>
+          <e p="Popups" t="Include">
+            <e p="BasePopup.cs" t="Include" />
+            <e p="PopupsManager.cs" t="Include" />
+            <e p="SettingsPopup.cs" t="Include" />
+          </e>
+          <e p="Screens" t="Include">
+            <e p="BaseScreen.cs" t="Include" />
+            <e p="GameScreen.cs" t="Include" />
+            <e p="MainMenuScreen.cs" t="Include" />
+          </e>
+          <e p="Utils" t="Include">
+            <e p="GameUtils.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="Match3ForZiMAD.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+    <e p="C:\Users\Mayis\.Rider2018.1\system\resharper-host\Local\Transient\ReSharperHost\v12\SolutionCaches\_Match3ForZiMAD.1996240816.00" t="ExcludeRecursive" />
+  </component>
+</project>
